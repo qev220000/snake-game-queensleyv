@@ -97,25 +97,38 @@ class SNAKE:
         self.direction = Vector2(0,0)
 
 
-
 class FRUIT:
     def __init__(self):
         self.randomize()
+        self.reset()
 
     def draw_fruit(self):
+        #fruits = [apple,cherry,strawberry]
+        #random_fruit = random.choice(fruits)
         fruit_rect = pygame.Rect(int(self.pos.x * cell_size), int(self.pos.y * cell_size), cell_size,cell_size)
-        screen.blit(apple,fruit_rect)
+        #if certain button is pressed for fruit then change fruit to that fruit yk
+        screen.blit(self.random_fruit,fruit_rect)
         #pygame.draw.rect(screen,(126,166,114), fruit_rect)
 
     def randomize(self):
         self.x = random.randint(0,cell_number - 1)
         self.y = random.randint(0,cell_number - 1)
         self.pos = Vector2(self.x,self.y)
+    
+    def reset(self):
+        fruits = [apple,cherry,strawberry]
+        self.random_fruit = random.choice(fruits)
+       # self.body = [Vector2(5,10),Vector2(4,10),Vector2(3,10)]
+       # self.direction = Vector2(0,0)
+
+
+
 
 class MAIN:
     def __init__(self):
         self.snake = SNAKE()
         self.fruit = FRUIT()
+
 
     def update(self):
         self.snake.move_snake()
@@ -150,6 +163,7 @@ class MAIN:
     
     def game_over(self):
         self.snake.reset()
+        self.fruit.reset()
 
     def draw_grass(self):
         grass_color = (177,111,247)
@@ -174,6 +188,8 @@ class MAIN:
         screen.blit(score_surface,score_rect)
 
 
+
+pygame.display.set_caption('Snake Game')
 pygame.mixer.pre_init(44100,-16,2,512)
 pygame.init()
 cell_size = 40
@@ -184,6 +200,10 @@ apple = pygame.image.load('Graphics/apple.png').convert_alpha()
 cherry = pygame.image.load('Graphics/cherry.png').convert_alpha()
 strawberry = pygame.image.load('Graphics/strawberry.png').convert_alpha()
 game_font = pygame.font.Font('Font/PoetsenOne-Regular.ttf', 25)
+apple_b = pygame.image.load('Graphics/apple_b.png').convert_alpha()
+cherry_b = pygame.image.load('Graphics/cherry_b.png').convert_alpha()
+strawberry_b = pygame.image.load('Graphics/strawberry_b.png').convert_alpha()
+
 
 
 SCREEN_UPDATE = pygame.USEREVENT
@@ -220,3 +240,4 @@ while running:
     main_game.draw_elements()
     pygame.display.update()
     clock.tick(60)
+
