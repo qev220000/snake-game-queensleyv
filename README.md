@@ -27,3 +27,12 @@ you choose to move the snake.
 In the future I'd like to add the option to use buttons in order to 
 choose the specific type of fruit one would like to play with instead
 of having to use randomization.
+
+I used the following videos to help me make my project
+
+Learning pygame by creating Snake [python tutorial]
+https://youtu.be/QFvqStqPCRU?si=VjJ2tbAQOw3Sjfuh
+
+Code a Snake Game with Python and Pygame 🐍 - Tutorial
+https://youtu.be/8dfePlONtls?si=8ggu-CSzaFzV8aUM
+

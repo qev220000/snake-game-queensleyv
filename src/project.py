@@ -103,12 +103,8 @@ class FRUIT:
         self.reset()
 
     def draw_fruit(self):
-        #fruits = [apple,cherry,strawberry]
-        #random_fruit = random.choice(fruits)
         fruit_rect = pygame.Rect(int(self.pos.x * cell_size), int(self.pos.y * cell_size), cell_size,cell_size)
-        #if certain button is pressed for fruit then change fruit to that fruit yk
         screen.blit(self.random_fruit,fruit_rect)
-        #pygame.draw.rect(screen,(126,166,114), fruit_rect)
 
     def randomize(self):
         self.x = random.randint(0,cell_number - 1)
@@ -118,8 +114,6 @@ class FRUIT:
     def reset(self):
         fruits = [apple,cherry,strawberry]
         self.random_fruit = random.choice(fruits)
-       # self.body = [Vector2(5,10),Vector2(4,10),Vector2(3,10)]
-       # self.direction = Vector2(0,0)
 
 
 
